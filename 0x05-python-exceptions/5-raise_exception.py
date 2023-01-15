@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-def raise_exception():
-    """
-    function that raises an exception
+# 5-raise_exception.py
+# Brennan D Baraban <375@holbertonschool.com>
 
-    Do not import any module
-    """
+
+def raise_exception():
+    """Raise a TypeError exception."""
     raise TypeError

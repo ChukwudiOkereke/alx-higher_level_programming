@@ -1,19 +1,22 @@
 #!/usr/bin/python3
 def weight_average(my_list=[]):
     """
-    Returns the weighted average of all integers tuple
-    Data is a list of two element tuples
-
-    Return: 0 if list is empty
-    Do not import any module
+    Returns the weighted average of all integers tuple (<score>, <weight>)
+    ...
+    Parameters
+    ----------
+    my_list : list
+        list of tuples
+    Return:
+        the average
     """
-    if my_list is None:
-        return 0
-    if len(my_list) == 0:
-        return 0
-    product = 0
-    divisor = 0
-    for i in my_list:
-        product += i[0] * i[1]
-        divisor += i[1]
-    return product / divisor
+
+    if not isinstance(my_list, list) or len(my_list) == 0:
+        return (0)
+
+    avg = 0
+    size = 0
+    for tup in my_list:
+        avg += (tup[0] * tup[1])
+        size += tup[1]
+    return (avg / size)

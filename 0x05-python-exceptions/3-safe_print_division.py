@@ -1,18 +1,14 @@
 #!/usr/bin/python3
+# 3-safe_print_division.py
+# Brennan D Baraban <375@holbertonschool.com>
+
+
 def safe_print_division(a, b):
-    """
-    Assume a and b are integers
-    print the result in finally section
-    preceeded by INside result:
-    Returns value of division otherwise None
-    Use try: / except: / finally:
-    Use str.format
-    Do not import any module
-    """
+    """Returns the division of a by b."""
     try:
-        result = a / b
-    except (ZeroDivisionError, TypeError):
-        result = None
+        div = a / b
+    except (TypeError, ZeroDivisionError):
+        div = None
     finally:
-        print("Inside result: {}".format(result))
-    return result
+        print("Inside result: {}".format(div))
+    return (div)

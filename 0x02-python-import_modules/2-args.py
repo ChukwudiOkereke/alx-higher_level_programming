@@ -1,22 +1,18 @@
 #!/usr/bin/python3
-
-# prints number of command line arguments as well as all the arguments
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     import sys
+    i = len(sys.argv) - 1
 
-    length = (len(sys.argv) - 1)
-    string = "arguments"
-    i = 1
-
-    if length == 0:
-        print("{} {}.".format(length, string))
-        sys.exit()
-    if length == 1:
-        print("{} {}:".format(length, string[:8]))
+    if i == 0:
+        print("{} arguments.".format(i))
+    elif i == 1:
+        print("{} argument:".format(i))
     else:
-        print("{} {}:".format(length, string))
-    while i <= length:
-        print("{}: {}".format(i, sys.argv[i]))
-        i = i + 1
+        print("{} arguments:".format(i))
+
+    if i >= 1:
+        i = 0
+        for arg in sys.argv:
+            if i != 0:
+                print("{}: {}".format(i, arg))
+            i += 1

@@ -1,2 +1,1 @@
-This directory is to study and better understand the use and operation of lists and tuples in the python language. It also contains a task in c in preparation for a technical interview.
-
+0x03-python-data_structures

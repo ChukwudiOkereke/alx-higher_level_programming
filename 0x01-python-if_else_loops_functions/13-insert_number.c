@@ -1,51 +1,49 @@
 #include "lists.h"
-#include <stdio.h>
 
 /**
- * insert_node - inserts a number into a sorted singly linked list
- * @head: head node of the list; points to first element
- * @number: number to be added to the list
- *
- * Return: the address of the new node or NULL if it failed
+ * insert_node - inserts a new node
+ * at a given position.
+ * @head: head of a list.
+ * @number: index of the list where the new node is
+ * added.
+ * Return: the address of the new node, or NULL if it
+ * failed.
  */
 listint_t *insert_node(listint_t **head, int number)
 {
-	listint_t *node, *ptr;
-	int i = 0;
+	listint_t *new;
+	listint_t *h;
+	listint_t *h_prev;
 
-	node = malloc(sizeof(listint_t));
-	if (node == NULL)
+	h = *head;
+	new = malloc(sizeof(listint_t));
+
+	if (new == NULL)
 		return (NULL);
-	node->n = number;
+
+	while (h != NULL)
+	{
+		if (h->n > number)
+			break;
+		h_prev = h;
+		h = h->next;
+	}
+
+	new->n = number;
 
 	if (*head == NULL)
 	{
-		node->next = NULL;
-		*head = node;
-		return (node);
+		new->next = NULL;
+		*head = new;
 	}
-	ptr = *head;
-	while (ptr->next != NULL)
+	else
 	{
-		if (number < ptr->next->n || number < ptr->n)
-		{
-			if (i == 0)  /* add node at the beginning */
-			{
-				node->next = *head;
-				*head = node;
-				break;
-			}
-			node->next = ptr->next;  /* adds nodes in between */
-			ptr->next = node;
-			break;
-		}
-		ptr = ptr->next;
-		i++;
+		new->next = h;
+		if (h == *head)
+			*head = new;
+		else
+			h_prev->next = new;
 	}
-	if (ptr->next == NULL)  /* adds node at the end */
-	{
-		node->next = NULL;
-		ptr->next = node;
-	}
-	return (node);
+
+	return (new);
 }

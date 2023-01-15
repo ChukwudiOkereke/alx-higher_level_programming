@@ -1,16 +1,14 @@
 #!/usr/bin/python3
 def no_c(my_string):
-    """
-    removes all characters c and C from a string
+    length = len(my_string)
 
-    my_string: string from which the above are to be removed
-    Return: the new string
+    j = 0
 
-    Do not import any module
-    You are not allowed to use str.replace()
-    """
-    new = ''
-    for i in my_string:
-        if i != 'c' and i != 'C':
-            new = new + i
-    return new
+    new_string = my_string[:]
+
+    for i in range(length):
+        if (my_string[i] == 'c' or my_string[i] == 'C'):
+            new_string = new_string[:(i - j)] + my_string[(i + 1):]
+            j += 1
+
+    return (new_string)

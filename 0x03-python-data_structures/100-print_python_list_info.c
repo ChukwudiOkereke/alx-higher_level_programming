@@ -1,25 +1,27 @@
 #include <stdio.h>
-extern struct timespec *ts;  /* removes unwanted error gives betty warning */
-#include "Python.h"  /* so it gets the type PyObject */
+#include <Python.h>
 
 /**
- * print_python_list_info - prints information about a list
- * @list: a list of type PyObject which must be casted to a PyListObject
+ * print_python_list_info - prints python list info
  *
- * Return: void
+ * @p: PyObject
+ * Return: no return
  */
-void print_python_list_info(PyObject *list)
+void print_python_list_info(PyObject *p)
 {
-	int i = 0;
-	PyListObject *ll;
+	long int size, i;
+	PyListObject *list;
+	PyObject *item;
 
-	/* to use a pyobject, it has to be casted to a Py_List_Object */
-	ll = (PyListObject *)list;
-	printf("[*] Size of the Python List = %ld\n", ll->ob_base.ob_size);
-	printf("[*] Allocated = %ld\n", ll->allocated);
-	/*("[*] my tp_name is %s\n", ll->ob_base.ob_base.ob_type->tp_name);*/
-	for (; i < ll->ob_base.ob_size; i++)
+	size = Py_SIZE(p);
+	printf("[*] Size of the Python List = %ld\n", size);
+
+	list = (PyListObject *)p;
+	printf("[*] Allocated = %ld\n", list->allocated);
+
+	for (i = 0; i < size; i++)
 	{
-		printf("Element %d: %s\n", i, ll->ob_item[i]->ob_type->tp_name);
+		item = PyList_GetItem(p, i);
+		printf("Element %ld: %s\n", i, Py_TYPE(item)->tp_name);
 	}
 }

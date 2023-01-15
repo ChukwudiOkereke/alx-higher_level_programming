@@ -1,16 +1,16 @@
 #!/usr/bin/python3
+# 4-list_division.py
+# Brennan D Baraban <375@holbertonschool.com>
+
+
 def list_division(my_list_1, my_list_2, list_length):
-    """
-    Divides element by element two lists
-    the lists can contain any type
-    list_length can be bigger than the length of both lists
-    Returns a new list (length = list_length) with all divisions
-    If 2 elements can't be divided, the result should be 0
-    If an element is not int or float print wrong type
-    if the division cant be done, print division by 0
-    If my_list_1 or my_list_2 is too short, print out of range
-    Use try: / except: / finally:
-    Do not import any module
+    """Divides two lists element by element.
+    Args:
+        my_list_1 (list): The first list.
+        my_list_2 (list): The second list.
+        list_length (int): The number of elements to divide.
+    Returns:
+        A new list of length list_length containing all the divisions.
     """
     new_list = []
     for i in range(0, list_length):

@@ -1,15 +1,18 @@
 #!/usr/bin/python3
 def simple_delete(a_dictionary, key=""):
     """
-    deletes a key in a dictionary
-    key argument will always be a string
-    If the key doesn't exist, the dictionary won't change
-
-    Do not import any module
-    Return: a new dictionary
+    Deletes a key in a dictionary
+    ...
+    Parameters
+    ----------
+    a_dictionary : dictionary
+        the given dictionary
+    key : string
+        argument will be always a string
+    Return:
+        the new dictionary
     """
-    if a_dictionary is None:
-        return None
+
     if key in a_dictionary:
-        a_dictionary.pop(key)
-    return a_dictionary
+        del a_dictionary[key]
+    return (a_dictionary)

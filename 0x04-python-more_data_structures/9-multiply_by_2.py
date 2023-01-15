@@ -2,14 +2,13 @@
 def multiply_by_2(a_dictionary):
     """
     Returns a new dictionary with all values multiplied by 2
-
-    Assume that all values are integers
-    Returns a new dictionary
-    Do not import any module
+    ...
+    Parameters
+    ----------
+    a_dictionary : dictionary
+        the given dictionary
+    Return:
+        a new dictionary
     """
-    if a_dictionary is None:
-        return None
-    new = a_dictionary.copy()
-    for k, v in new.items():
-        new[k] = v * 2
-    return new
+
+    return ({k: a_dictionary[k] * 2 for k in a_dictionary})

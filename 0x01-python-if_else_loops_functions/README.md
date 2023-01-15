@@ -1,1 +1,1 @@
-This directory is to understand the use of if, else statements as well as how to use them and loops in python.
+0x01-python-if_else_loops_functions

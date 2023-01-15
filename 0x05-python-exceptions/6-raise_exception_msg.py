@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-def raise_exception_msg(message=""):
-    """
-    raises a name exception with a message
+# 6-raise_exception_msg.py
+# Brennan D Baraban <375@holbertonschool.com>
 
-    Do not import any module
-    """
+
+def raise_exception_msg(message=""):
+    """Raise a NameError exception with a message."""
     raise NameError(message)
